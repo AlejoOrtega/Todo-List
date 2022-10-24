@@ -1,0 +1,43 @@
+/* GENERAL */
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Utilities */
+.bg-grey {
+  background: lightgrey;
+}
+
+/* TODO */
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.todo {
+  margin-top: 32px;
+}
+
+/* Todo Input */
+.todo__input {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.todo__list {
+  margin-bottom: 32px;
+}
+
+.todo__list li {
+  padding: 8px;
+}
+
+/* Todo Input - Output */
+
+.todo__input-output {
+  padding: 8px;
+}
