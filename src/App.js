@@ -7,12 +7,12 @@ import "./styles.css";
 import uuid from 'react-uuid';
 
 export default function App() {
-  let todos = [{id: uuid(), content:"buy new jump"}, {id:uuid(), content:"dinner with friends"}];
+  let todos = [{id: uuid(), todo:"buy new jump"}, {id:uuid(), todo:"dinner with friends"}];
 
   const [todo, setTodo] = useState(todos);
 
   const addTodo = (value) => {
-    setTodo((prev) => [...prev, {id: uuid(), content: value}]);
+    setTodo((prev) => [...prev, {id: uuid(), todo: value}]);
   };
 
   const deleteTodo = (itemIndex) => {
@@ -29,7 +29,7 @@ export default function App() {
         <List>
           {todo.map((singleTodo, index) => {
             return (
-              <ListItem todo={singleTodo.content} key={`todo-${singleTodo.id}`}>
+              <ListItem todo={singleTodo.todo} key={`todo-${singleTodo.id}`}>
                 <button onClick={() => deleteTodo(singleTodo.id)}>Delete</button>
               </ListItem>
             );
