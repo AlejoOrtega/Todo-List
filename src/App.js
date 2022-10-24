@@ -4,18 +4,19 @@ import List from "./components/List";
 import ListItem from "./components/ListItem";
 import Input from "./components/Input";
 import "./styles.css";
+import uuid from 'react-uuid';
 
 export default function App() {
-  let todos = ["buy new jump", "dinner with friends"];
+  let todos = [{id: uuid(), content:"buy new jump"}, {id:uuid(), content:"dinner with friends"}];
 
   const [todo, setTodo] = useState(todos);
 
   const addTodo = (value) => {
-    setTodo((prev) => [...prev, value]);
+    setTodo((prev) => [...prev, {id: uuid(), content: value}]);
   };
 
   const deleteTodo = (itemIndex) => {
-    setTodo((prev) => [...prev.filter((item, index) => index !== itemIndex)]);
+    setTodo((prev) => [...prev.filter((item) => item.id !== itemIndex)]);
   };
 
   return (
@@ -28,8 +29,8 @@ export default function App() {
         <List>
           {todo.map((singleTodo, index) => {
             return (
-              <ListItem todo={singleTodo} key={`todo-${index}`}>
-                <button onClick={() => deleteTodo(index)}>Delete</button>
+              <ListItem todo={singleTodo.content} key={`todo-${singleTodo.id}`}>
+                <button onClick={() => deleteTodo(singleTodo.id)}>Delete</button>
               </ListItem>
             );
           })}
